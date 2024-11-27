@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  --clock-size: 80vmin;
+  --mark-length: 1rem;
+  --thick-mark-length: 1.5rem;
+}
+
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-areas: 'clock' 'footer';
+  grid-template-rows: 1fr min-content;
+  row-gap: 1rem;
+}
+
+#flex-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  grid-area: clock;
+}
+
+#clock {
+  border: 2rem solid #000;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border-radius: 50%;
+  position: relative;
+}
+
+#clock #center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background-color: #f00;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: top center;
+  z-index: 1;
+}
+
+#hour-hand {
+  width: 0.8rem;
+  height: calc(var(--clock-size) / 5);
+  background: #000;
+}
+
+#minute-hand {
+  width: 0.5rem;
+  height: calc(var(--clock-size) / 2.5);
+  background: #000;
+}
+
+#second-hand {
+  width: 0.25rem;
+  height: calc(var(--clock-size) / 2.25);
+  background: #f00;
+}
+
+.mark {
+  position: absolute;
+  width: 0.25rem;
+  height: var(--mark-length);
+  background-color: #000;
+  top: 50%;
+  left: 50%;
+  transform-origin: top center;
+}
+
+.mark-thick {
+  width: 0.35rem;
+  height: var(--thick-mark-length);
+}
+
+.number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 4.5rem;
+}
+
+footer {
+  grid-area: footer;
+  width: 100%;
+  background-color: #196cca;
+  color: #eef0f2;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.footer-info {
+  margin: 0;
+}
+
+.footer-info a {
+  color: inherit;
+}
